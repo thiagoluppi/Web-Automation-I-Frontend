@@ -7,7 +7,7 @@ end
 
 Quando("submeto meu cadastro completo") do
   find("#fullName").set "Thiago Messias Luppi"
-  find("#email").set "thiago.luppi@icloud.com"
+  find("#email").set Faker::Internet.free_email
   find("#password").set "pwd123"
 
   click_button "Cadastrar"
