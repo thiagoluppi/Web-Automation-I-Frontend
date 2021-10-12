@@ -16,3 +16,14 @@ end
 Entao("sou redirecionado para o Dashboard") do
   expect(page).to have_css ".dashboard"
 end
+
+Quando("submeto meu cadastro sem o nome") do
+  find("#email").set Faker::Internet.free_email
+  find("#password").set "pwd123"
+
+  click_button "Cadastrar"
+end
+
+Entao("vejo a mensagem de alerta: Oops. Informe seu nome completo") do
+  expect(find(".alert-dark").text).to eql "Oops. Informe seu nome completo!"
+end
