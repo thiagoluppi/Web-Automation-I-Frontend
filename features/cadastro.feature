@@ -8,6 +8,6 @@ Funcionalidade: Cadastro
 
 @temp
 Cenário: Fazer cadastro
-  Dado que acesso a página de cadastro
+  Dado que acesso a pagina de cadastro
   Quando submeto meu cadastro completo
-  Então sou redirecionado para o Dashboard
+  Entao sou redirecionado para o Dashboard
