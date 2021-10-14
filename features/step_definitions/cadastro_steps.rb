@@ -1,13 +1,16 @@
 # language: pt
 # encoding: utf-8
 
+
 Dado("que acesso a pagina de cadastro") do
   visit "http://rocklov-web:3000/signup"
 end
 
 Quando("submeto meu cadastro completo") do
+  Mongodb.new.remove_user("thiago.luppi@icloud.com")
+  
   find("#fullName").set "Thiago Messias Luppi"
-  find("#email").set Faker::Internet.free_email
+  find("#email").set "thiago.luppi@icloud.com"
   find("#password").set "pwd123"
 
   click_button "Cadastrar"
