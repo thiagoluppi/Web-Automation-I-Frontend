@@ -9,7 +9,9 @@ Funcionalidade: Cadastro
 @cadastro
 Cenario: Fazer cadastro
   Dado que acesso a pagina de cadastro
-  Quando submeto meu cadastro completo
+  Quando submeto o seguinte formulario de cadastro:
+    | nome                  | email                   | senha |
+    | Thiago Messias Luppi  | thiago.luppi@icloud.com | pwd123|
   Entao sou redirecionado para o Dashboard
 
 
