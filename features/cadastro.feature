@@ -15,35 +15,16 @@ Cenario: Fazer cadastro
     | Thiago Messias Luppi  | thiago.luppi@icloud.com | pwd123|
   Entao sou redirecionado para o Dashboard
 
-
-@tentativa_cadastro
-Cenario: Submeter cadastro sem o nome
+@tentativa
+Esquema do Cenario: Tentativa de Cadastro
   Dado que acesso a pagina de cadastro
   Quando submeto o seguinte formulario de cadastro:
-    | nome                  | email                   | senha |
-    |                       | thiago.luppi@icloud.com | pwd123|
-  Entao vejo a mensagem de alerta: "Oops. Informe seu nome completo!"
-
-@tentativa_cadastro
-Cenario: Submeter cadastro sem o email
-  Dado que acesso a pagina de cadastro
-  Quando submeto o seguinte formulario de cadastro:
-    | nome                  | email                   | senha |
-    | Thiago Messias Luppi  |                         | pwd123|
-  Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
-
-@tentativa_cadastro
-Cenario: Submeter cadastro com o email incorreto
-  Dado que acesso a pagina de cadastro
-  Quando submeto o seguinte formulario de cadastro:
-    | nome                  | email                   | senha |
-    | Thiago Messias Luppi  | 123                     | pwd123|
-  Entao vejo a mensagem de alerta: "Oops. Informe um email válido!"
-
-@tentativa_cadastro
-Cenario: Submeter cadastro sem a senha
-  Dado que acesso a pagina de cadastro
-  Quando submeto o seguinte formulario de cadastro:
-    | nome                  | email                   | senha |
-    | Thiago Messias Luppi  | thiago.luppi@icloud.com |       |
-  Entao vejo a mensagem de alerta: "Oops. Informe sua senha secreta!"
+    | nome          | email         | senha         |
+    | <nome_input>  | <email_input> | <senha_input> |
+  Entao vejo a mensagem de alerta: "<mensagem>"
+  Exemplos:
+  | nome_input            | email_input             | senha_input | mensagem                          |
+  |                       | thiago.luppi@icloud.com | pwd123      | Oops. Informe seu nome completo!  |
+  | Thiago Messias Luppi  |                         | pwd123      | Oops. Informe um email válido!    |
+  | Thiago Messias Luppi  | 123                     | pwd123      | Oops. Informe um email válido!    |
+  | Thiago Messias Luppi  | thiago.luppi@icloud.com |             | Oops. Informe sua senha secreta!  |
