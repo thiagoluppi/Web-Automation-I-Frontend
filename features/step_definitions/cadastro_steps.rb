@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 Dado("que acesso a pagina de cadastro") do
-  visit "http://rocklov-web:3000/signup"
+  visit "/signup"
 end
 
 Quando("submeto o seguinte formulario de cadastro:") do |table|
