@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 Dado("que acesso a pagina principal") do
-  visit "http://rocklov-web:3000/"
+  visit "/"
 end
 
 Quando("submeto minhas credenciais com {string} e {string}") do |email, senha|
