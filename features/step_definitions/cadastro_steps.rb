@@ -30,7 +30,3 @@ Quando("submeto o seguinte formulario de cadastro:") do |table|
 
   click_button "Cadastrar"
 end
-
-Entao("vejo a mensagem de alerta: {string}") do |alert_message|
-  expect(find(".alert-dark").text).to eql alert_message
-end
