@@ -1,11 +1,13 @@
 # language: pt
 # encoding: utf-8
 
+@anuncios
 Funcionalidade: Cadastro de Anuncios
   Sendo um usuario cadastrado no Rocklov que possui equipamentos musicais
   Quero cadastrar meus equipamentos
   Para que eu possa disponibilizar para aluguel
 
+  @temp
   Cenario: Novo equipo
     Dado que eu tenho o seguinte equipamento:
       | thumb     | fender-sb.jpg |

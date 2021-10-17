@@ -11,7 +11,6 @@ Funcionalidade: Login
     Quando submeto minhas credenciais com "thiago.luppi@icloud.com" e "pwd123"
     Entao sou redirecionado para o Dashboard
 
-  @temp
   Esquema do Cenario: Tentar logar
     Dado que acesso a pagina principal
     Quando submeto minhas credenciais com "<email_input>" e "<senha_input>"
