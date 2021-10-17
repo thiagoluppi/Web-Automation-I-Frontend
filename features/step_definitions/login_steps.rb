@@ -16,7 +16,7 @@ Quando("submeto minhas credenciais com {string} e {string}") do |email, senha|
     Quando submeto o seguinte formulario de cadastro:
       | nome                 | email                   | senha  |
       | Thiago Messias Luppi | thiago.luppi@icloud.com | pwd123 |
-      Dado que acesso a pagina principal
+    Dado que acesso a pagina principal
   }
 
   find("input[placeholder='Seu e-email']").set email
