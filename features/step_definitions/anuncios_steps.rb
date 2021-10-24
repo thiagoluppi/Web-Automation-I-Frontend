@@ -1,19 +1,36 @@
 # language: pt
 # encoding: utf-8
 
+Dado("que estou logado como {string} e {string}") do |email, password|
+  visit "/"
+
+  find("input[placeholder='Seu e-email']").set email
+  # aqui não precisaria colocar password entre aspas porque se trata de uma palavra. Se fossem duas, como acima, seria necessario.
+  find("input[type='password']").set password
+
+  click_button "Entrar"
+end
+
+Dado("que acesso o formulario de cadastro de anuncios") do
+  # click_button "Criar anúncio"
+  find(".btn").click
+  # Checkpoint para garantir que estou no lugar certo.
+  expect(page).to have_css "#equipoForm"
+end
+
 Dado("que eu tenho o seguinte equipamento:") do |table|
+
+  # Isso poderia ter sido usado para resolver o problema do professor, sem precisar mexer no feature, vide branch: aula_cadastro_anuncios_1
+  # steps %{
+  #   Dado que acesso a pagina principal
+  #   Quando submeto minhas credenciais com "thiago.luppi@icloud.com" e "pwd123"
+  # }
+
   # Como essa é uma tabela de chave-valor, vamos usar o rows_hash:
   # Esse método pega uma tabela de chave-valor e converter num objeto Ruby.
   # O resultado fica assim: {"thumb"=>"fender-sb.jpg", "nome"=>"Fender Strato", "categoria"=>"Cordas", "preco"=>"200"}
-
-  steps %{
-    Dado que acesso a pagina principal
-    Quando submeto minhas credenciais com "thiago.luppi@icloud.com" e "pwd123"    
-  }
   @anuncio = table.rows_hash
   log @anuncio
-
-  find(".btn-full").click
 end
 
 Quando("submeto o cadatro desse item") do
