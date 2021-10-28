@@ -56,11 +56,13 @@ Quando("submeto o cadatro desse item") do
   # Com o comando abaixo o capybara encontra até mesmo os elementos invisiveis.
   find("#thumbnail input[type=file]", visible: false).set thumb
 
-  sleep 5
   # botão Cadastrar: ==> click_button "Cadastrar"
-  # find(".btn").click
+  find(".btn").click
 end
 
 Entao("devo ver esse item no meu Dashboard") do
-  pending # Write code here that turns the phrase above into concrete actions
+  anuncios = find(".equipo-list")
+  expect(anuncios).to have_content @anuncio[:nome]
+  expect(anuncios).to have_content "R$#{@anuncio[:preco]}/dia"
+  sleep 5
 end

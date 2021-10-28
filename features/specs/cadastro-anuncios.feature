@@ -10,7 +10,7 @@ Funcionalidade: Cadastro de Anuncios
   # Diferente da tabela do arquivo cadastro.feature, essa tabela é de chave e valor:
   # thumb é a chave e o valor é fender-sb.jpg e por ai vai...
   # Na outra tabela temos colunas e varios valores diferentes, aqui temos apenas um único registro.
-  @temp
+  @novo_equipo
   Cenario: Novo equipo
     Dado que estou logado como "thiago.luppi@icloud.com" e "pwd123"
       E que acesso o formulario de cadastro de anuncios
