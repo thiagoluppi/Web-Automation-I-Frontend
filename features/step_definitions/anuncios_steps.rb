@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 Dado("que estou logado como {string} e {string}") do |email, password|
+  @email = email
   visit "/"
 
   find("input[placeholder='Seu e-email']").set email
@@ -30,7 +31,7 @@ Dado("que eu tenho o seguinte equipamento:") do |table|
   # Esse método pega uma tabela de chave-valor e converter num objeto Ruby.
   # O resultado fica assim: {"thumb"=>"fender-sb.jpg", "nome"=>"Fender Strato", "categoria"=>"Cordas", "preco"=>"200"}
   @anuncio = table.rows_hash
-  log @anuncio
+  Mongodb.new.remove_equipo(@anuncio[:nome], @email)
 end
 
 Quando("submeto o cadatro desse item") do
@@ -64,5 +65,4 @@ Entao("devo ver esse item no meu Dashboard") do
   anuncios = find(".equipo-list")
   expect(anuncios).to have_content @anuncio[:nome]
   expect(anuncios).to have_content "R$#{@anuncio[:preco]}/dia"
-  sleep 5
 end
